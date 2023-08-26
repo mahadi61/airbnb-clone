@@ -10,7 +10,7 @@ const Rooms = ({ categoryName }) => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:5000/${categoryName}`)
+    fetch(`https://airbnb-clone-server-ruby.vercel.app/${categoryName}`)
       .then((res) => res.json())
       .then((data) => {
         setRooms(data);

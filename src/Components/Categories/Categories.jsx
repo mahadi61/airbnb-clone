@@ -5,7 +5,7 @@ const Categories = ({ setCategoryName }) => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allCategory")
+    fetch("https://airbnb-clone-server-ruby.vercel.app/allCategory")
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
