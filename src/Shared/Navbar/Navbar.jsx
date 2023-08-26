@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
+import Container from "../Container";
 import MenuDropDown from "./MenuDropDown";
 import Search from "./Search";
-import Container from "../Container";
 
 const Navbar = () => {
   return (

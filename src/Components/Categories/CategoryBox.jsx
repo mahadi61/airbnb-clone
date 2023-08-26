@@ -5,7 +5,7 @@ const CategoryBox = ({ label, icon, setCategoryName }) => {
 
   const handleClick = () => {
     setCategoryName(label);
-    setSelected(true);
+    // setSelected(true);
   };
 
   return (
@@ -30,7 +30,7 @@ const CategoryBox = ({ label, icon, setCategoryName }) => {
      
       `}
     >
-      <img src={icon} alt="" className="w-10 h-10" />
+      <img src={icon} alt="" className="w-6 h-6" />
 
       <div className="text-sm font-medium">{label}</div>
     </div>
