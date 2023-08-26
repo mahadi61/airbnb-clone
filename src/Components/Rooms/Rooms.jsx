@@ -1,32 +1,23 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
 import Container from "../../Shared/Container";
 import Loader from "../../Shared/Loader";
 import Heading from "../Heading/Heading";
 import Card from "./Card";
 
-const Rooms = () => {
-  const [params, setParams] = useSearchParams();
-  const category = params.get("category");
-
+const Rooms = ({ categoryName }) => {
   const [rooms, setRooms] = useState([]);
   const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     setLoading(true);
-    fetch("http://localhost:5000/allRooms")
+    fetch(`http://localhost:5000/${categoryName}`)
       .then((res) => res.json())
       .then((data) => {
-        if (category) {
-          const filtered = data.filter((room) => room.category === category);
-          setRooms(filtered);
-        } else {
-          setRooms(data);
-        }
-
+        setRooms(data);
         setLoading(false);
       })
       .catch((err) => console.log(err));
-  }, [category]);
+  }, [categoryName]);
 
   if (loading) {
     return <Loader />;

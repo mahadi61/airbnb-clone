@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Container from "../../Shared/Container";
 import CategoryBox from "./CategoryBox";
-const Categories = () => {
+const Categories = ({ setCategoryName }) => {
   const [categories, setCategories] = useState([]);
 
   useEffect(() => {
@@ -12,13 +12,14 @@ const Categories = () => {
 
   return (
     <Container>
-      <div className="pt-24 flex flex-row items-center justify-between overflow-x-auto">
+      <div className="pt-24 flex flex-row items-center justify-center overflow-x-auto">
         {categories.map((item) => (
           <CategoryBox
             label={item.label}
             icon={item.icon}
             key={item._id}
             // selected={category === item.label}
+            setCategoryName={setCategoryName}
           />
         ))}
       </div>

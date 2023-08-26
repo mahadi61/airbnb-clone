@@ -1,31 +1,16 @@
-const CategoryBox = ({ label, icon }) => {
-  // const [params] = useSearchParams();
+import { useState } from "react";
 
-  // const navigate = useNavigate();
-  // const handleClick = () => {
-  //   let currentQuery = {};
-  //   if (params) {
-  //     currentQuery = qs.parse(params.toString());
-  //   }
-  //   const updatedQuery = {
-  //     ...currentQuery,
-  //     category: label,
-  //   };
+const CategoryBox = ({ label, icon, setCategoryName }) => {
+  const [selected, setSelected] = useState(false);
 
-  //   const url = qs.stringifyUrl(
-  //     {
-  //       url: "/",
-  //       query: updatedQuery,
-  //     },
-  //     { skipNull: true }
-  //   );
+  const handleClick = () => {
+    setCategoryName(label);
+    setSelected(true);
+  };
 
-  //   navigate(url);
-  // };
-  const selected = false;
   return (
     <div
-      // onClick={handleClick}
+      onClick={handleClick}
       className={`
         flex 
         flex-col 
