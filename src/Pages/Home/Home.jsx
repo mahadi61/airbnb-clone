@@ -3,7 +3,7 @@ import Categories from "../../Components/Categories/Categories";
 import Rooms from "../../Components/Rooms/Rooms";
 
 const Home = () => {
-  const [categoryName, setCategoryName] = useState("ALL");
+  const [categoryName, setCategoryName] = useState("all");
 
   return (
     <div>
