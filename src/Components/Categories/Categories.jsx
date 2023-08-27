@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { FaXmark } from "react-icons/fa6";
 import Container from "../../Shared/Container";
+import PriceRange from "../Filter/PriceRange";
 import CategoryBox from "./CategoryBox";
 const Categories = ({ setCategoryName }) => {
   const [categories, setCategories] = useState([]);
@@ -48,7 +49,7 @@ const Categories = ({ setCategoryName }) => {
               </div>
 
               {/* modal filter */}
-              <div className="p-4">
+              <div className="p-4 overflow-y-auto">
                 <h1 className="text-2xl font-bold text-black my-3">
                   Type of place
                 </h1>
@@ -76,6 +77,9 @@ const Categories = ({ setCategoryName }) => {
                     Average nightly prices dont include fees or taxes.
                   </p>
                 </div>
+                {/* price range */}
+                <PriceRange />
+                {/* <PropertyType /> */}
               </div>
 
               {/* modal bottom */}
