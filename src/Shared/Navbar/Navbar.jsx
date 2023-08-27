@@ -1,9 +1,12 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import Container from "../Container";
 import MenuDropDown from "./MenuDropDown";
+import NavbarFilter from "./NavbarFilter";
 import Search from "./Search";
 
 const Navbar = () => {
+  const [openFilter, setOpenFilter] = useState(false);
   return (
     <div>
       <div className="fixed w-full bg-white z-10 shadow-sm">
@@ -21,7 +24,12 @@ const Navbar = () => {
                 />
                 <p className="text-2xl font-bold text-[#FF385C]">airbnb</p>
               </Link>
-              <Search />
+              {openFilter ? (
+                <NavbarFilter />
+              ) : (
+                <Search setOpenFilter={setOpenFilter} />
+              )}
+
               <MenuDropDown />
             </div>
           </Container>
