@@ -3,6 +3,7 @@ import { FaXmark } from "react-icons/fa6";
 import Container from "../../Shared/Container";
 import PriceRange from "../Filter/PriceRange";
 import CategoryBox from "./CategoryBox";
+import PropertyType from "../Filter/PropertyType";
 const Categories = ({ setCategoryName }) => {
   const [categories, setCategories] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -37,7 +38,7 @@ const Categories = ({ setCategoryName }) => {
         </button>
         {isModalOpen && (
           <div className="fixed top-0 left-0 w-full h-full px-4 bg-[#0000009a]  flex items-center justify-center z-10 ">
-            <div className=" relative w-[700px] h-[500px] bg-white opacity-100 rounded-lg shadow-lg">
+            <div className=" relative w-[700px] h-[500px] bg-white opacity-100 rounded-lg shadow-lg ">
               {/* modal top */}
               <div className=" flex justify-center  shadow-lg p-4">
                 <button onClick={toggleModal}>
@@ -49,7 +50,7 @@ const Categories = ({ setCategoryName }) => {
               </div>
 
               {/* modal filter */}
-              <div className="p-4 overflow-y-auto">
+              <div className="p-4 h-[380px] overflow-y-auto">
                 <h1 className="text-2xl font-bold text-black my-3">
                   Type of place
                 </h1>
@@ -79,7 +80,7 @@ const Categories = ({ setCategoryName }) => {
                 </div>
                 {/* price range */}
                 <PriceRange />
-                {/* <PropertyType /> */}
+                <PropertyType />
               </div>
 
               {/* modal bottom */}
