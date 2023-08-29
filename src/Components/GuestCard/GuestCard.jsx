@@ -1,10 +1,11 @@
-import { useState } from "react";
-
-const GuestCard = () => {
-  const [adults, setAdult] = useState(0);
-  const [children, setChildren] = useState(0);
-  const [infants, setInfants] = useState(0);
-
+const GuestCard = ({
+  adults,
+  setAdult,
+  childrenData,
+  setChildrenData,
+  infants,
+  setInfants,
+}) => {
   return (
     <div className="bg-white rounded-3xl shadow-lg px-6 py-7">
       {/* Adults */}
@@ -42,17 +43,17 @@ const GuestCard = () => {
         <div className="flex items-center gap-2">
           <button
             onClick={() => {
-              children < 1
+              childrenData < 1
                 ? alert("You can not select below 0")
-                : setChildren(children - 1);
+                : setChildrenData(childrenData - 1);
             }}
             className="px-2 border-[2px] rounded-full "
           >
             -
           </button>
-          <p>{children}</p>
+          <p>{childrenData}</p>
           <button
-            onClick={() => setChildren(children + 1)}
+            onClick={() => setChildrenData(childrenData + 1)}
             className="px-2 border-[2px] rounded-full "
           >
             +

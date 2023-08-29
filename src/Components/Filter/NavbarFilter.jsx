@@ -6,6 +6,11 @@ import GuestCard from "../GuestCard/GuestCard";
 const NavbarFilter = () => {
   const [calenderOpen, setCalenderOpen] = useState(false);
   const [openGuest, setOpenGuest] = useState(false);
+  const [place, setPlace] = useState("");
+  const [adults, setAdult] = useState(0);
+  const [childrenData, setChildrenData] = useState(0);
+  const [infants, setInfants] = useState(0);
+
   const calender = useRef(null);
   const openCalender = () => {
     setCalenderOpen(!calenderOpen);
@@ -59,6 +64,8 @@ const NavbarFilter = () => {
                   <input
                     className="text-gray-500 hover:bg-slate-100 border-none focus:outline-none "
                     type="text"
+                    name="place"
+                    onBlur={() => setPlace(event.target.value)}
                     placeholder="Search destination"
                   />
                 </div>
@@ -104,7 +111,14 @@ const NavbarFilter = () => {
             )}
             {openGuest && (
               <div className="absolute top-0 right-0">
-                <GuestCard />
+                <GuestCard
+                  adults={adults}
+                  setAdult={setAdult}
+                  childrenData={childrenData}
+                  setChildrenData={setChildrenData}
+                  infants={infants}
+                  setInfants={setInfants}
+                />
               </div>
             )}
           </div>
