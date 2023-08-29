@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import Container from "../Container";
 import MenuDropDown from "./MenuDropDown";
-import NavbarFilter from "./NavbarFilter";
 import Search from "./Search";
+import NavbarFilter from "../../Components/Filter/NavbarFilter";
 
 const Navbar = () => {
   const [openFilter, setOpenFilter] = useState(false);
@@ -12,7 +12,11 @@ const Navbar = () => {
       <div className="fixed w-full bg-white z-10 shadow-sm">
         <div className="py-4 border-b-[1px]">
           <Container>
-            <div className="flex flex-row  items-center justify-between gap-3 md:gap-0">
+            <div
+              className={`flex flex-row  ${
+                openFilter ? "items-start" : "items-center"
+              } justify-between gap-3 md:gap-0`}
+            >
               {/* logo here */}
               <Link to="/" className="flex items-center">
                 <img

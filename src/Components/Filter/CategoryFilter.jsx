@@ -124,7 +124,7 @@ const CategoryFilter = ({ toggleModal }) => {
                   {["Any", 1, 2, 3, 4, 5, 6, 7, 8].map((n, i) => (
                     <li
                       key={i}
-                      className="hover:bg-black hover:text-white border border-gray-300 px-5 py-2 rounded-3xl"
+                      className="hover:bg-black hover:text-white border border-gray-300 px-5 py-2 rounded-3xl cursor-pointer"
                       value={n}
                     >
                       {n}
@@ -139,7 +139,7 @@ const CategoryFilter = ({ toggleModal }) => {
                   {["Any", 1, 2, 3, 4, 5, 6, 7, 8].map((n, i) => (
                     <li
                       key={i}
-                      className="hover:bg-black hover:text-white border border-gray-300 px-5 py-2 rounded-3xl"
+                      className="hover:bg-black hover:text-white border border-gray-300 px-5 py-2 rounded-3xl cursor-pointer"
                       value={n}
                     >
                       {n}
