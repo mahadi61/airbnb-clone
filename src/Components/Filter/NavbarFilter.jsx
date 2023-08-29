@@ -1,12 +1,17 @@
 import { useRef, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import DatePicker from "../Calender/Calender";
+import GuestCard from "../GuestCard/GuestCard";
 
 const NavbarFilter = () => {
   const [calenderOpen, setCalenderOpen] = useState(false);
+  const [openGuest, setOpenGuest] = useState(false);
   const calender = useRef(null);
   const openCalender = () => {
     setCalenderOpen(!calenderOpen);
+  };
+  const openGuestHandle = () => {
+    setOpenGuest(!openGuest);
   };
 
   // // Function to close the element when a click is detected outside of it
@@ -72,7 +77,10 @@ const NavbarFilter = () => {
                 Checkout
                 <p className="">dates</p>
               </div>
-              <div className="text-sm pl-6 pr-2  rounded-full hover:bg-slate-100  px-6 py-3 flex flex-row items-center gap-3">
+              <div
+                onClick={openGuestHandle}
+                className="text-sm pl-6 pr-2  rounded-full hover:bg-slate-100  px-6 py-3 flex flex-row items-center gap-3"
+              >
                 <div className="hidden sm:block">
                   <p className="text-black">Who</p>Add Guests
                 </div>
@@ -92,6 +100,11 @@ const NavbarFilter = () => {
                 <DatePicker />
                 <p className="font-semibold">To</p>
                 <DatePicker />
+              </div>
+            )}
+            {openGuest && (
+              <div className="absolute top-0 right-0">
+                <GuestCard />
               </div>
             )}
           </div>
