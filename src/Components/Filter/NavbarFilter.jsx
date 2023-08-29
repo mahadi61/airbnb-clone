@@ -1,12 +1,34 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import DatePicker from "../Calender/Calender";
 
 const NavbarFilter = () => {
   const [calenderOpen, setCalenderOpen] = useState(false);
+  const calender = useRef(null);
   const openCalender = () => {
     setCalenderOpen(!calenderOpen);
   };
+
+  // // Function to close the element when a click is detected outside of it
+  // const handleClickOutside = (event) => {
+  //   if (calender.current && !calender.current.contains(event.target)) {
+  //     setCalenderOpen(false);
+  //   }
+  // };
+
+  // Attach click event listener to the document when the component mounts
+  // useEffect(() => {
+  //   if (calenderOpen) {
+  //     document.addEventListener("click", handleClickOutside);
+  //   } else {
+  //     document.removeEventListener("click", handleClickOutside);
+  //   }
+
+  //   // Cleanup the event listener when the component unmounts
+  //   return () => {
+  //     document.removeEventListener("click", handleClickOutside);
+  //   };
+  // }, [calenderOpen]);
 
   return (
     <>
@@ -63,7 +85,10 @@ const NavbarFilter = () => {
           </div>
           <div className="relative">
             {calenderOpen && (
-              <div className="absolute top-0 flex items-center justify-center bg-white">
+              <div
+                ref={calender}
+                className="absolute top-0 flex items-center justify-center bg-white"
+              >
                 <DatePicker />
                 <p className="font-semibold">To</p>
                 <DatePicker />
