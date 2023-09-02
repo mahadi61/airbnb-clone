@@ -4,7 +4,7 @@ import { FaXmark } from "react-icons/fa6";
 const CategoryFilter = ({ toggleModal }) => {
   return (
     <div>
-      <div className="fixed top-0 left-0 w-full h-full px-4 bg-[#0000009a]  flex items-center justify-center z-10 ">
+      <div className="fixed top-0 left-0 w-full h-full px-4 bg-[#0000009a]  flex items-center justify-center z-50 ">
         <div className=" relative w-[700px] h-[500px] bg-white opacity-100 rounded-lg shadow-lg ">
           {/* modal top */}
           <div className=" flex justify-center  borde p-4">

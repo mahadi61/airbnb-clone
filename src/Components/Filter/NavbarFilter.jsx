@@ -19,6 +19,15 @@ const NavbarFilter = () => {
     setOpenGuest(!openGuest);
   };
 
+  // handle search for filtering
+  const handleNavbarFilter = () => {
+    fetch(
+      `http://localhost:5000/allFilterRoom/${place}/${adults}/${childrenData}/${infants}`
+    )
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  };
+
   // // Function to close the element when a click is detected outside of it
   // const handleClickOutside = (event) => {
   //   if (calender.current && !calender.current.contains(event.target)) {
@@ -84,17 +93,17 @@ const NavbarFilter = () => {
                 Checkout
                 <p className="">dates</p>
               </div>
-              <div
-                onClick={openGuestHandle}
-                className="text-sm pl-6 pr-2  rounded-full hover:bg-slate-100  px-6 py-3 flex flex-row items-center gap-3"
-              >
-                <div className="hidden sm:block">
+              <div className="text-sm pl-6 pr-2  rounded-full hover:bg-slate-100  px-6 py-3 flex flex-row items-center gap-3">
+                <div onClick={openGuestHandle} className="hidden sm:block">
                   <p className="text-black">Who</p>Add Guests
                 </div>
-                <div className="flex justify-between items-center px-5 py-2 bg-rose-500 rounded-full text-white">
+                <button
+                  onClick={handleNavbarFilter}
+                  className="flex justify-between items-center px-5 py-2 bg-rose-500 rounded-full text-white"
+                >
                   <BiSearch size={18} />
                   <p>Search</p>
-                </div>
+                </button>
               </div>
             </div>
           </div>

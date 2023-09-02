@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import HeartButton from "../Button/HeartButton";
+import ImageSlider from "./ImageSlider";
 
 const Card = ({ room }) => {
   return (
@@ -7,29 +8,20 @@ const Card = ({ room }) => {
       <div className="flex flex-col gap-2 w-full">
         <div
           className="
-            aspect-square 
             w-full 
             relative 
             overflow-hidden 
             rounded-xl
           "
         >
-          <img
-            className="
-              object-cover 
-              h-full 
-              w-full 
-              group-hover:scale-110 
-              transition
-            "
-            src={room.image}
-            alt="Room"
-          />
+          <ImageSlider images={room?.images} />
+
           <div
             className="
             absolute
             top-3
             right-3
+            z-10
           "
           >
             <HeartButton />
